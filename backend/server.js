@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import productRoutes from "./routes/productRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 
 
 
@@ -28,6 +29,9 @@ mongoose.connection.on("error", (error) =>{
 })
 
 app.use("/api/products", productRoutes);
+
+app.use("/api/auth", authRoutes);
+
 
 app.listen(PORT, () =>{
    console.log(" Server is running on port " + PORT);
